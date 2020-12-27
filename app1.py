@@ -10,7 +10,13 @@ def translate (w):
 # conditionals
     if w in data:
         return data[w]
-        # check if input is correct to keys available sequence matcher
+       #condition for input data with title case
+    elif w.title() in data:
+        return data[w.title()]
+    #condition for input data with acronyms
+    elif w.upper() in data:
+        return data[w.upper()]
+     # check if input is correct to keys available sequence matcher
     elif len(get_close_matches(w, data.keys())) > 0:
         # user input if wrong program provides suggestions, store in input in variable(yn) to compare
         yn= input("Did you mean %s instead? Enter Y if Yes, N if No" % get_close_matches(w, data.keys())[0])
